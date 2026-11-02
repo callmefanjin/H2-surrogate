@@ -24,7 +24,7 @@ z_i=\frac{\max(Y_i,0)^{\lambda}-1}{\lambda},
 \qquad \lambda=0.1.
 $$
 
-Temperature and pressure retain their physical values at this stage; the full transformed state is then standardized using the stored statistics of each temperature-dependent network. Signed increments in transformed space are scaled through an inverse hyperbolic sine, $\operatorname{asinh}(\Delta z/(\Delta t\,s))$, where $s$ is a channel-dependent scale. This compresses large positive and negative targets while retaining their signs.
+Temperature and pressure retain their physical values at this stage; the full transformed state is then standardized using the stored statistics of each temperature-dependent network. Signed increments in transformed space are scaled through an inverse hyperbolic sine, $\mathrm{asinh}(\Delta z/(\Delta t\,s))$, where $s$ is a channel-dependent scale. This compresses large positive and negative targets while retaining their signs.
 
 Training combines adjacent-state increment supervision with short autoregressive windows of up to 50 steps (5 microseconds). Within each window, the model feeds its own physically closed predictions into the next step. The objective combines increment error, temperature and transformed-species trajectory error, and penalties for composition corrections and energy residuals.
 
