@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "H2-surrogate"
+version = "1.0.0"
+description = "Neural surrogate for hydrogen-air autoignition kinetics"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = ["numpy>=2,<3", "torch>=2.6,<3", "cantera>=3.2,<4"]
+
+[project.optional-dependencies]
+plot = ["matplotlib>=3.8,<4"]
+
+[project.scripts]
+h2-surrogate = "h2_surrogate.__main__:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+h2_surrogate = ["assets/*.pt", "assets/*.yaml"]
